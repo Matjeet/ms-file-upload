@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: uploadFiles
+  task:
+    execution:
+      shutdown:
+        await-termination: true
+        await-termination-period: 30s
+
+thread:
+  pool:
+    io:
+      core-size: 5
+      max-size: 20
+      queue-capacity: 100
+      keep-alive-seconds: 60
+      thread-name-prefix: io-pool-
+    cpu:
+      core-size: 2
+      max-size: 8
+      queue-capacity: 50
+      keep-alive-seconds: 30
+      thread-name-prefix: cpu-pool-
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+    metrics:
+      enabled: true
+  metrics:
+    enable:
+      thread:
+        pool: true
+  health:
+    thread-pools:
+      enabled: true

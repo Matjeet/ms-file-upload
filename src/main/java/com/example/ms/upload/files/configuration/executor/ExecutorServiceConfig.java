@@ -1,6 +1,6 @@
-package com.example.ms.uploadFiles.configuration.executor;
+package com.example.ms.upload.files.configuration.executor;
 
-import com.example.ms.uploadFiles.configuration.threadPool.ThreadPoolProperties;
+import com.example.ms.upload.files.configuration.properties.ThreadPoolProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

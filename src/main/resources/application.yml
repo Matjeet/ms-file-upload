@@ -7,6 +7,15 @@ spring:
         await-termination: true
         await-termination-period: 30s
 
+business:
+  file:
+    temp-dir: /temp/file-uploads
+
+logging:
+  pattern:
+    console: %d{yyyy-MM-dd HH:mm:ss} [%thread] [%X{correlationId}] %-5level %logger{36} - %msg%n
+    file: %d{yyyy-MM-dd HH:mm:ss} [%thread] [%X{correlationId}] %-5level %logger{36} - %msg%n
+
 thread:
   pool:
     io:

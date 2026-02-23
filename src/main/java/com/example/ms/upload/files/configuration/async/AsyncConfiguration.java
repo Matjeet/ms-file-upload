@@ -1,6 +1,6 @@
-package com.example.ms.uploadFiles.configuration.async;
+package com.example.ms.upload.files.configuration.async;
 
-import com.example.ms.uploadFiles.configuration.threadPool.ThreadPoolProperties;
+import com.example.ms.upload.files.configuration.properties.ThreadPoolProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;

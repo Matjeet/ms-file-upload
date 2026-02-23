@@ -1,4 +1,4 @@
-package com.example.ms.uploadFiles.configuration.threadPool;
+package com.example.ms.upload.files.configuration.threadPool;
 
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.binder.MeterBinder;

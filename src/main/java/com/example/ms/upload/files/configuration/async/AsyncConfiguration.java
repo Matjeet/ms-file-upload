@@ -4,7 +4,6 @@ import com.example.ms.upload.files.configuration.properties.ThreadPoolProperties
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -16,7 +15,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 @EnableAsync
-@EnableConfigurationProperties(ThreadPoolProperties.class)
 public class AsyncConfiguration implements AsyncConfigurer {
 
     private final ThreadPoolProperties properties;

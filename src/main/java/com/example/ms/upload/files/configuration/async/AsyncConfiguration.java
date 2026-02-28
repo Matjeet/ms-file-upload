@@ -1,10 +1,9 @@
-package com.example.ms.uploadFiles.configuration.async;
+package com.example.ms.upload.files.configuration.async;
 
-import com.example.ms.uploadFiles.configuration.threadPool.ThreadPoolProperties;
+import com.example.ms.upload.files.configuration.properties.ThreadPoolProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -16,7 +15,6 @@ import java.util.concurrent.ThreadPoolExecutor;
 
 @Configuration
 @EnableAsync
-@EnableConfigurationProperties(ThreadPoolProperties.class)
 public class AsyncConfiguration implements AsyncConfigurer {
 
     private final ThreadPoolProperties properties;
@@ -54,6 +52,8 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setAwaitTerminationSeconds(60);
 
+        executor.setTaskDecorator(new MdcTaskDecorator());
+
         executor.initialize();
         return executor;
     }
@@ -70,6 +70,8 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         executor.setAllowCoreThreadTimeOut(false);
+
+        executor.setTaskDecorator(new MdcTaskDecorator());
 
         executor.initialize();
         return executor;

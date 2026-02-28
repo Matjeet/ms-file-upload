@@ -1,10 +1,12 @@
-package com.example.ms.uploadFiles.configuration.threadPool;
+package com.example.ms.upload.files.configuration.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 @Configuration
 @ConfigurationProperties(prefix = "thread.pool")
+@Primary
 public class ThreadPoolProperties {
 
     private PoolConfig io;

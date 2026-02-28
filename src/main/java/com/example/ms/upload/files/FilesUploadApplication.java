@@ -1,13 +1,13 @@
-package com.example.ms.uploadFiles;
+package com.example.ms.upload.files;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class filesUploadApplication {
+public class FilesUploadApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(filesUploadApplication.class, args);
+		SpringApplication.run(FilesUploadApplication.class, args);
 	}
 
 }

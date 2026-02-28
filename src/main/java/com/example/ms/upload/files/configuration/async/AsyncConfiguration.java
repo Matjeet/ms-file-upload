@@ -52,6 +52,8 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setWaitForTasksToCompleteOnShutdown(true);
         executor.setAwaitTerminationSeconds(60);
 
+        executor.setTaskDecorator(new MdcTaskDecorator());
+
         executor.initialize();
         return executor;
     }
@@ -68,6 +70,8 @@ public class AsyncConfiguration implements AsyncConfigurer {
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         executor.setAllowCoreThreadTimeOut(false);
+
+        executor.setTaskDecorator(new MdcTaskDecorator());
 
         executor.initialize();
         return executor;

@@ -30,7 +30,7 @@ public class FileUploadUseCase implements IFileUploadServicePort {
     }
 
     @Override
-    public FileUploadResponse initiateUpload(MultipartFile file, String correlationId) {
+    public FileUploadResponse initiateUpload(MultipartFile file) {
 
         log.info("Initiating FileUpload using FileUploadUseCase.");
 
@@ -38,9 +38,9 @@ public class FileUploadUseCase implements IFileUploadServicePort {
 
         validateFile(file);
 
-        fileJobTrackerService.createJob(jobId, correlationId, file.getOriginalFilename());
+        fileJobTrackerService.createJob(jobId, file.getOriginalFilename());
 
-        asyncProcessService.processFileAsync(jobId, file, correlationId);
+        asyncProcessService.processFileAsync(jobId, file);
 
         log.info("FileUpload using FileUploadUseCase.");
 

@@ -5,5 +5,5 @@ import org.springframework.web.multipart.MultipartFile;
 
 public interface IFileUploadServicePort {
 
-    FileUploadResponse initiateUpload(MultipartFile file, String correlationId);
+    FileUploadResponse initiateUpload(MultipartFile file);
 }

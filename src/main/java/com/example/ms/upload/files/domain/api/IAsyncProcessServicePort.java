@@ -6,5 +6,5 @@ import java.util.UUID;
 
 public interface IAsyncProcessServicePort {
 
-    void processFileAsync(UUID jobId, MultipartFile file, String correlationId);
+    void processFileAsync(UUID jobId, MultipartFile file);
 }

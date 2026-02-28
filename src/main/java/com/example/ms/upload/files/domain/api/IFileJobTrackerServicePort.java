@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public interface IFileJobTrackerServicePort {
 
-    void createJob(UUID jobId, String fileName, String correlationId);
+    void createJob(UUID jobId, String fileName);
 
     void updateStatus(UUID jobId, FileJobStatus.Status status, String message);
 

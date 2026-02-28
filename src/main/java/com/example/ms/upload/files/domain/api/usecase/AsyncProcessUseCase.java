@@ -36,9 +36,8 @@ public class AsyncProcessUseCase implements IAsyncProcessServicePort {
 
     @Async("ioBoundTaskExecutor")
     @Override
-    public void processFileAsync(UUID jobId, MultipartFile file, String correlationId) {
+    public void processFileAsync(UUID jobId, MultipartFile file) {
 
-        MDC.put("correlationId", correlationId);
         String tempDir = businessProperties.getFile().getTempDir();
 
         try {
@@ -62,8 +61,6 @@ public class AsyncProcessUseCase implements IAsyncProcessServicePort {
             fileJobTrackerService.updateStatus(jobId, FileJobStatus.Status.FAILED, PROCESS_FILE_FAILED_ERR_MSG + ex.getMessage());
 
             tempFileService.cleanUpTempFile(jobId, file.getOriginalFilename(), tempDir);
-        } finally {
-            MDC.clear();
         }
     }
 

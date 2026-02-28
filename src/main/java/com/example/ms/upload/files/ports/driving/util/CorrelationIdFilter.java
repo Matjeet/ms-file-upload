@@ -21,7 +21,7 @@ public class CorrelationIdFilter extends OncePerRequestFilter {
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         try {
-            String correlationId = request.getHeader(HEADER_CORRELATION_ID);
+            String correlationId = geCorrelationId(request);
 
             MDC.put(CORRELATION_ID_MDC_KEY, correlationId);
 

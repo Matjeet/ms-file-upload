@@ -40,14 +40,11 @@ public class FileController {
             @RequestParam("file")MultipartFile file,
             HttpServletRequest request) {
 
-        String correlationId = generateCorrelationId(request);
-        MDC.put("correlationId", correlationId);
-
         logger.info("Received file upload request: {} ({} bytes)",
                 file.getOriginalFilename(), file.getSize());
 
         try {
-            FileUploadResponse response = fileUploadServicePort.initiateUpload(file, correlationId);
+            FileUploadResponse response = fileUploadServicePort.initiateUpload(file);
 
             logger.info("File accepted for async processing. JobId: {}", response.getJobId());
 
